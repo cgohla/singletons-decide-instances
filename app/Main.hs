@@ -24,6 +24,10 @@ import           Data.Text                  (Text)
 import           GHC.TypeLits.Singletons    (Symbol)
 import           Language.Haskell.TH        (Name)
 
+
+-- | This is code from the README
+-- https://github.com/goldfirere/singletons#arrows-symbol-and-literals
+
 -- Term-level
 newtype Message = MkMessage Text
 -- Type-level
@@ -47,7 +51,7 @@ $(let customPromote :: Name -> Name
                hello :: Message
                hello = MkMessage "hello"
                |]
-    decs3 <- singDecideInstances [''Message]
+    decs3 <- singDecideInstances [''Message] -- I added this
     return $ decs1 ++ decs2 ++ decs3)
 
 main :: IO ()
